@@ -1,0 +1,61 @@
+.STATES
+start
+NUM!
+ALLID!
+LPAREN!
+RPAREN!
+LBRACE!
+RBRACE!
+LBRACK!
+RBRACK!
+BECOMES!
+PLUS!
+MINUS!
+STAR!
+SLASH!
+PCT!
+AMP!
+COMMA!
+SEMI!
+LT!
+GT!
+LE!
+GE!
+EQ!
+NE!
+ex
+?WHITESPACE!
+?COMMENT!
+
+.TRANSITIONS
+start a-z A-Z ALLID
+ALLID a-z A-Z 0-9 ALLID
+start 0-9 NUM
+NUM 0-9 NUM
+start ( LPAREN
+start ) RPAREN
+start { LBRACE
+start } RBRACE
+start [ LBRACK
+start ] RBRACK
+start = BECOMES
+start + PLUS
+start - MINUS
+start * STAR
+start / SLASH
+start % PCT
+start & AMP
+start , COMMA
+start ; SEMI
+start < LT
+start > GT
+start ! ex
+LT = LE
+GT = GE
+BECOMES = EQ
+ex = NE
+start       \s \t \n ?WHITESPACE
+?WHITESPACE \s \t \n ?WHITESPACE
+SLASH / ?COMMENT
+?COMMENT \x00-\x09 \x0B \x0C \x0E-\x7F ?COMMENT
+

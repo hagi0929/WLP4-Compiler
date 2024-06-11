@@ -1,0 +1,40 @@
+start BOF procedures EOF
+BOF BOF
+procedures main
+main INT WAIN LPAREN dcl COMMA dcl RPAREN LBRACE dcls statements RETURN expr SEMI RBRACE
+INT int
+WAIN wain
+LPAREN (
+dcl type ID
+type INT STAR
+INT int
+STAR *
+ID a
+COMMA ,
+dcl type ID
+type INT
+INT int
+ID b
+RPAREN )
+LBRACE {
+dcls .EMPTY
+statements .EMPTY
+RETURN return
+expr term
+term factor
+factor STAR factor
+STAR *
+factor AMP lvalue
+AMP &
+lvalue STAR factor
+STAR *
+factor AMP lvalue
+AMP &
+lvalue LPAREN lvalue RPAREN
+LPAREN (
+lvalue ID
+ID b
+RPAREN )
+SEMI ;
+RBRACE }
+EOF EOF

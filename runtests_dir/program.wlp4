@@ -1,0 +1,15 @@
+int wain(int n, int b) {
+  int power = 1;
+  int log = 0;
+  int sqrt = 0;
+  while(power*b <= n) {
+    power = power*b;
+    log = log + 1;
+  }
+  power = 1;
+  while(n/(power+1) >= (power+1)) {
+    power = power+1;
+  }
+  sqrt = power;
+  return sqrt - log;
+}
